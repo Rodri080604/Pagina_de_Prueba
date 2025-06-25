@@ -1,0 +1,704 @@
+/* Actualización de la paleta de colores a tonos azules */
+:root {
+    --primary-color: #1a7cb8; /* Azul principal */
+    --primary-light: #50b0e8; /* Azul claro */
+    --primary-dark: #0a4c7f; /* Azul oscuro */
+    --secondary-color: #50b0e8; /* Azul claro/acento */
+    --accent-color: #50b0e8; /* Azul claro */
+    --dark-blue: #0a4c7f; /* Azul oscuro */
+    --ultra-dark-blue: #0a1522; /* Azul casi negro */
+    --dark-bg: #121212; /* Fondo negro con toque azulado */
+    --card-bg: #1e1e1e; /* Fondo de tarjetas */
+    --card-bg-color: #1e1e1e; /* Alias para compatibilidad */
+    --background-color: #121212; /* Alias para compatibilidad */
+    --success-color: #27ae60; /* Verde para indicadores positivos */
+    --warning-color: #e67e22; /* Naranja para advertencias */
+    --danger-color: #e74c3c; /* Rojo para alertas */
+    --info-color: #50b0e8; /* Azul para información */
+    --text-light: #ecf0f1; /* Texto claro */
+    --text-color: #ecf0f1; /* Alias para compatibilidad */
+    --text-dim: #bdc3c7; /* Texto menos destacado */
+    --light-text: #ecf0f1; /* Alias para compatibilidad */
+    --dark-text: #242424; /* Texto oscuro */
+    --card-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
+    --transition-speed: 0.3s;
+    --accent-gradient: linear-gradient(135deg, #1a7cb8, #50b0e8);
+    --accent-glow: 0 0 15px rgba(80, 176, 232, 0.6);
+    --card-border-color: #1a7cb8;
+    --card-glass: rgba(40, 40, 40, 0.25);
+    --neon-glow: 0 0 10px rgba(80, 176, 232, 0.8), 0 0 20px rgba(80, 176, 232, 0.5), 0 0 30px rgba(80, 176, 232, 0.3);
+    --intense-neon-glow: 0 0 15px rgba(80, 176, 232, 1), 0 0 30px rgba(80, 176, 232, 0.7), 0 0 45px rgba(80, 176, 232, 0.5);
+    --radar-gradient: conic-gradient(rgba(80, 176, 232, 0.2) 0%, transparent 30%, transparent 60%, rgba(80, 176, 232, 0.1) 70%, transparent 100%);
+}
+
+/* Estilo general del cuerpo */
+body {
+    background-color: var(--dark-bg);
+    color: var(--text-light);
+    font-family: 'Roboto', sans-serif;
+}
+
+/* Encabezado principal */
+header h1 {
+    color: transparent;
+    font-weight: bold;
+    letter-spacing: 2px;
+    background: var(--accent-gradient);
+    -webkit-background-clip: text;
+    background-clip: text;
+    text-shadow: var(--accent-glow);
+    margin-bottom: 1.5rem;
+    padding: 15px 0;
+    position: relative;
+    font-size: 2.5rem;
+    animation: pulseText 3s infinite alternate;
+    text-transform: uppercase;
+}
+
+/* Tarjetas */
+.card {
+    background-color: var(--card-bg);
+    border: 1px solid var(--dark-blue);
+    box-shadow: 0 0 15px rgba(10, 76, 127, 0.2);
+    position: relative;
+}
+
+.card-header {
+    background-color: var(--ultra-dark-blue) !important;
+    border-bottom: 1px solid var(--dark-blue);
+}
+
+.card-title {
+    color: var(--secondary-color);
+}
+
+.text-orange {
+    color: var(--secondary-color) !important; /* Cambiando naranja por azul */
+}
+
+/* Video container */
+.video-container {
+    background-color: #0a0a0a;
+    border-radius: 16px;
+    overflow: hidden;
+    position: relative;
+    height: 0;
+    padding-bottom: 56.25%; /* Aspect ratio 16:9 */
+    border: 1px solid rgba(26, 124, 184, 0.2);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.6), inset 0 0 30px rgba(0, 0, 0, 0.8);
+    transform-style: preserve-3d;
+    perspective: 1000px;
+    transition: transform 0.5s ease;
+}
+
+.video-placeholder {
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: center !important;
+    align-items: center !important;
+    color: var(--primary-color) !important;
+}
+
+#videoStream {
+    position: relative !important;
+    width: 100% !important;
+    height: 100% !important;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    background-color: #080808 !important;
+    border-radius: 12px !important;
+    min-height: 300px !important;
+}
+
+.transmision-container {
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: center !important;
+    align-items: center !important;
+    width: 100% !important;
+    height: 100% !important;
+}
+
+.video-container {
+    position: relative !important;
+    width: 100% !important;
+    height: 400px !important;
+    padding-bottom: 56.25% !important; /* Relación de aspecto 16:9 */
+    margin-bottom: 20px !important;
+    overflow: hidden !important;
+}
+
+.record-indicator {
+    position: absolute !important;
+    top: 15px !important;
+    right: 15px !important;
+    display: flex !important;
+    align-items: center !important;
+    padding: 5px 10px !important;
+    background-color: rgba(0, 0, 0, 0.7) !important;
+    border-radius: 5px !important;
+    z-index: 10 !important;
+}
+
+.record-dot {
+    width: 10px !important;
+    height: 10px !important;
+    background-color: #e74c3c !important;
+    border-radius: 50% !important;
+    margin-right: 5px !important;
+    animation: blink 1s infinite !important;
+}
+
+.record-indicator {
+    position: absolute !important;
+    top: 15px !important;
+    right: 15px !important;
+    display: flex !important;
+    align-items: center !important;
+    padding: 5px 10px !important;
+    background-color: rgba(0, 0, 0, 0.7) !important;
+    border-radius: 5px !important;
+    z-index: 10 !important;
+}
+
+.record-dot {
+    width: 10px !important;
+    height: 10px !important;
+    background-color: #e74c3c !important;
+    border-radius: 50% !important;
+    margin-right: 5px !important;
+    animation: blink 1s infinite !important;
+}
+
+@keyframes blink {
+    0% { opacity: 1; }
+    50% { opacity: 0.3; }
+    100% { opacity: 1; }
+}
+
+/* Sensores */
+.sensor-card {
+    padding: 1.5rem 1.2rem;
+    border-radius: 18px;
+    background: linear-gradient(145deg, #1c1c1c, #222222);
+    text-align: center;
+    margin-bottom: 15px;
+    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.3), 
+                0 5px 10px rgba(0, 0, 0, 0.2);
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    transform-style: preserve-3d;
+    perspective: 1000px;
+}
+
+.sensor-icon {
+    margin: 5px auto 15px;
+    color: var(--primary-light);
+    font-size: 1.4em;
+    height: 70px;
+    width: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: linear-gradient(145deg, #212121, #171717);
+    box-shadow: 6px 6px 12px rgba(0, 0, 0, 0.4), 
+                -2px -2px 10px rgba(0, 0, 0, 0.1);
+    position: relative;
+    overflow: hidden;
+    transition: all 0.4s ease;
+}
+
+.sensor-icon:before {
+    content: '';
+    position: absolute;
+    top: -10%;
+    left: -10%;
+    width: 120%;
+    height: 120%;
+    background: radial-gradient(circle at 30% 30%, 
+        rgba(255, 255, 255, 0.15) 0%, 
+        transparent 60%);
+    pointer-events: none;
+}
+
+.sensor-icon:after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: conic-gradient(
+        transparent, 
+        rgba(26, 124, 184, 0.2), 
+        transparent 30%,
+        transparent 70%, 
+        rgba(26, 124, 184, 0.2), 
+        transparent
+    );
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    animation: rotateIcon 10s linear infinite;
+}
+
+.sensor-card:hover .sensor-icon {
+    color: var(--primary-color);
+    transform: scale(1.1);
+    box-shadow: 0 0 15px rgba(26, 124, 184, 0.5), 
+                0 0 5px rgba(26, 124, 184, 0.3);
+    animation: iconPulse 2s infinite alternate;
+}
+
+.sensor-value {
+    font-size: 2rem;
+    font-weight: bold;
+    margin-top: 5px;
+    background: var(--accent-gradient);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    text-shadow: var(--accent-glow);
+    position: relative;
+    display: inline-block;
+}
+
+.sensor-critical {
+    color: var(--danger-color) !important;
+    animation: pulse 1s infinite alternate;
+}
+
+/* Tarjetas de temperatura y humedad */
+.temperature-scale, .humidity-scale {
+    width: 80%;
+    height: 6px;
+    background-color: rgba(50, 50, 50, 0.3);
+    border-radius: 3px;
+    margin: 10px auto 0;
+    overflow: hidden;
+    position: relative;
+}
+
+.temperature-scale {
+    background: linear-gradient(to right, #3498db, #1a7cb8, #0a4c7f);
+    box-shadow: 0 0 8px rgba(26, 124, 184, 0.5);
+}
+
+.humidity-scale {
+    background: linear-gradient(to right, #e74c3c, #3498db, #2ecc71);
+    box-shadow: 0 0 8px rgba(52, 152, 219, 0.5);
+}
+
+/* Estilo actualizado para el radar sin animación giratoria */
+.radar-display {
+    height: 130px;
+    background-color: #0a1522;
+    border-radius: 150px 150px 0 0;
+    position: relative;
+    overflow: hidden;
+    margin-bottom: 15px;
+    border: 1px solid var(--primary-color);
+    border-bottom: none;
+    box-shadow: inset 0 0 20px rgba(10, 76, 127, 0.2);
+}
+
+/* Eliminar la animación giratoria */
+.radar-sweep {
+    display: none;
+}
+
+/* Añadimos líneas de radar estáticas más elegantes */
+.radar-display:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: 150px 150px 0 0;
+    background: 
+        radial-gradient(circle at bottom center, transparent 0, transparent 20px, rgba(10, 76, 127, 0.15) 21px, transparent 22px),
+        radial-gradient(circle at bottom center, transparent 0, transparent 40px, rgba(10, 76, 127, 0.15) 41px, transparent 42px),
+        radial-gradient(circle at bottom center, transparent 0, transparent 60px, rgba(10, 76, 127, 0.15) 61px, transparent 62px);
+    pointer-events: none;
+}
+
+/* Actualizar los objetos del radar con nuevos colores */
+.radar-object {
+    position: absolute;
+    width: 6px;
+    height: 6px;
+    background-color: #50b0e8;
+    border-radius: 50%;
+    box-shadow: 0 0 8px #50b0e8;
+    transform: translate(-50%, -50%);
+    z-index: 5;
+}
+
+.radar-static-object {
+    position: absolute;
+    width: 6px;
+    height: 6px;
+    background-color: #191dfa;
+    border-radius: 50%;
+    box-shadow: 0 0 8px #0f16da;
+    transform: translate(-50%, -50%);
+    z-index: 5;
+}
+
+/* Actualizar la tarjeta de proximidad */
+.proximity-card {
+    background-color: #141414;
+    border: 1px solid var(--primary-color);
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 0 20px rgba(26, 124, 184, 0.3);
+    position: relative;
+}
+
+.proximity-card:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: 
+        radial-gradient(ellipse at 30% 40%, rgba(26, 124, 184, 0.05) 0%, transparent 70%),
+        radial-gradient(ellipse at 70% 60%, rgba(26, 124, 184, 0.05) 0%, transparent 70%);
+    pointer-events: none;
+}
+
+.proximity-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 15px 0;
+}
+
+.proximity-icon {
+    width: 64px;
+    height: 64px;
+    background-color: rgba(20, 20, 20, 0.8);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 10px;
+    border: 2px solid var(--primary-color);
+    box-shadow: 0 0 15px rgba(26, 124, 184, 0.7);
+}
+
+.proximity-icon i {
+    font-size: 32px;
+    color: var(--primary-color);
+}
+
+.proximity-header h4 {
+    font-size: 18px;
+    color: var(--primary-color);
+    margin: 0;
+    letter-spacing: 2px;
+    font-weight: bold;
+}
+
+/* Estilo para el modelo del carrito */
+.car-model-container {
+    background-color: #141414;
+    border-radius: 15px;
+    padding: 15px;
+    margin-bottom: 20px;
+    border: 1px solid #333;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+}
+
+.car-model-display {
+    width: 100%;
+    height: 160px;
+    background-color: #0a0a0a;
+    border-radius: 20px;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid var(--primary-color);
+    box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.8);
+}
+
+.car-outline {
+    width: 80%;
+    height: 60px;
+    border: 2px solid #1a7cb8;
+    border-radius: 30px;
+    position: relative;
+    box-shadow: 0 0 15px rgba(26, 124, 184, 0.3);
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.car-icon {
+    font-size: 40px;
+    color: #1a7cb8;
+    filter: drop-shadow(0 0 8px rgba(26, 124, 184, 0.8));
+}
+
+/* Correcciones forzadas para el modelo del carro y micrófonos */
+.mic-point {
+    position: absolute !important;
+    width: 24px !important;
+    height: 24px !important;
+    background-color: rgba(20, 20, 20, 0.8) !important;
+    border-radius: 50% !important;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    border: 1px solid #1a7cb8 !important;
+    transition: all 0.3s ease !important;
+    z-index: 100 !important;
+}
+
+.mic-point i {
+    font-size: 12px !important;
+    color: #1a7cb8 !important;
+    transition: all 0.3s ease !important;
+}
+
+.mic-point[data-active="true"] {
+    background-color: rgba(10, 76, 127, 0.9) !important;
+    box-shadow: 0 0 8px rgba(26, 124, 184, 0.9) !important;
+    transform: scale(1.2) !important;
+}
+
+.mic-point[data-active="true"] i {
+    color: #50b0e8 !important;
+    animation: pulse 0.5s infinite alternate !important;
+}
+
+/* Reemplazar cualquier btn-orange restante con estilos azules */
+.btn-orange, .btn-outline-orange {
+    background-color: #1a7cb8 !important;
+    border-color: #0a4c7f !important;
+    color: white !important;
+}
+
+.text-orange {
+    color: #1a7cb8 !important;
+}
+
+/* Forzar la visualización correcta del carro */
+.car-outline {
+    width: 80% !important;
+    height: 60px !important;
+    border: 2px solid #1a7cb8 !important;
+    border-radius: 30px !important;
+    position: relative !important;
+    box-shadow: 0 0 15px rgba(26, 124, 184, 0.3) !important;
+    margin: 0 auto !important;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+}
+
+.car-icon {
+    font-size: 40px !important;
+    color: #1a7cb8 !important;
+    filter: drop-shadow(0 0 8px rgba(26, 124, 184, 0.8)) !important;
+}
+
+/* Asegurar que haya suficiente espacio para los micrófonos */
+.car-model-display {
+    padding: 20px !important;
+}
+
+/* Desactivar cualquier manejador de errores automático */
+.error-handler, .connection-error {
+    display: none !important;
+}
+
+/* Animaciones */
+@keyframes pulse {
+    0% { opacity: 0.7; }
+    100% { opacity: 1; }
+}
+
+@keyframes rotateIcon {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+@keyframes iconPulse {
+    0% { transform: scale(1); text-shadow: 0 0 5px rgba(26, 124, 184, 0.5); }
+    100% { transform: scale(1.15); text-shadow: 0 0 15px rgba(26, 124, 184, 0.8); }
+}
+
+@keyframes pulseText {
+    0% { text-shadow: 0 0 10px rgba(26, 124, 184, 0.7); }
+    100% { text-shadow: 0 0 20px rgba(26, 124, 184, 0.9), 0 0 30px rgba(26, 124, 184, 0.3); }
+}
+
+@keyframes glowPulse {
+    0% { box-shadow: 0 0 10px rgba(26, 124, 184, 0.5); }
+    100% { box-shadow: 0 0 20px rgba(26, 124, 184, 0.9), 0 0 40px rgba(26, 124, 184, 0.3); }
+}
+
+/* Restaurar el diseño original de los controles con más vida */
+.control-btn {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    font-size: 1.7rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    position: relative;
+    overflow: hidden;
+    border: none;
+    background: linear-gradient(135deg, #1a7cb8, #0a4c7f);
+    color: white;
+    z-index: 1;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3),
+                0 0 15px rgba(26, 124, 184, 0.3),
+                inset 0 -2px 0 rgba(0, 0, 0, 0.2);
+}
+
+.control-btn:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.2) 0%, transparent 60%);
+    z-index: -1;
+}
+
+.control-btn:hover {
+    transform: translateY(-5px) scale(1.1);
+    box-shadow: 0 15px 25px rgba(0, 0, 0, 0.4),
+                0 0 20px rgba(26, 124, 184, 0.5),
+                0 0 35px rgba(26, 124, 184, 0.2);
+    color: white;
+    background: linear-gradient(135deg, #50b0e8, #1a7cb8);
+}
+
+.control-btn:active, .control-active {
+    transform: scale(0.95);
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.3),
+                0 0 10px rgba(26, 124, 184, 0.4);
+    background-color: #0a4c7f !important;
+    color: white !important;
+}
+
+.control-active {
+    animation: buttonPulse 1.5s infinite alternate;
+}
+
+#stop {
+    background: linear-gradient(135deg, #e74c3c, #c0392b);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3),
+                0 0 15px rgba(231, 76, 60, 0.3),
+                inset 0 -2px 0 rgba(0, 0, 0, 0.2);
+}
+
+#stop:hover {
+    background: linear-gradient(135deg, #f54b3a, #e74c3c);
+    box-shadow: 0 15px 25px rgba(0, 0, 0, 0.4),
+                0 0 20px rgba(231, 76, 60, 0.5),
+                0 0 35px rgba(231, 76, 60, 0.2);
+}
+
+/* Control pad con más presencia */
+.control-pad {
+    padding: 20px;
+    background: rgba(10, 10, 10, 0.2);
+    border-radius: 20px;
+    box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.2);
+    max-width: 300px;
+    margin: 0 auto;
+    border: 1px solid rgba(26, 124, 184, 0.1);
+}
+
+/* Animaciones adicionales para los botones */
+@keyframes buttonPulse {
+    0% { box-shadow: 0 0 5px rgba(26, 124, 184, 0.5); }
+    100% { box-shadow: 0 0 20px rgba(26, 124, 184, 0.8), 0 0 30px rgba(26, 124, 184, 0.4); }
+}
+
+/* Estilos para el área de velocidad */
+.speed-control {
+    background: rgba(10, 10, 10, 0.2);
+    border-radius: 15px;
+    padding: 15px;
+    margin-top: 20px !important;
+    border: 1px solid rgba(26, 124, 184, 0.1);
+    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.speed-control label {
+    color: #50b0e8;
+    font-weight: bold;
+    font-size: 18px;
+    margin-bottom: 10px;
+    text-shadow: 0 0 5px rgba(26, 124, 184, 0.5);
+}
+
+.form-range {
+    height: 10px;
+}
+
+.form-range::-webkit-slider-thumb {
+    background: #1a7cb8;
+    box-shadow: 0 0 10px rgba(26, 124, 184, 0.8);
+}
+
+.form-range::-moz-range-thumb {
+    background: #1a7cb8;
+    box-shadow: 0 0 10px rgba(26, 124, 184, 0.8);
+}
+
+/* Mejor estilo para los botones de audio */
+.audio-buttons button {
+    margin-right: 10px;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    border: none;
+}
+
+.audio-buttons .btn-orange {
+    background: linear-gradient(135deg, #1a7cb8, #0a4c7f);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3), 
+                0 0 10px rgba(26, 124, 184, 0.3);
+}
+
+.audio-buttons .btn-orange:hover {
+    background: linear-gradient(135deg, #50b0e8, #1a7cb8);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.4), 
+                0 0 15px rgba(26, 124, 184, 0.5);
+    transform: translateY(-3px);
+}
+
+.audio-buttons .btn-outline-orange {
+    border: 1px solid #1a7cb8;
+    color: #1a7cb8;
+}
+
+.audio-buttons .btn-outline-orange:hover {
+    background-color: rgba(26, 124, 184, 0.1);
+    box-shadow: 0 0 15px rgba(26, 124, 184, 0.4);
+}

@@ -1,0 +1,1793 @@
+/* Actualización de la paleta de colores a tonos azules */
+:root {
+    --primary-color: #1a7cb8; /* Azul principal */
+    --primary-light: #50b0e8; /* Azul claro */
+    --primary-dark: #0a4c7f; /* Azul oscuro */
+    --secondary-color: #50b0e8; /* Azul claro/acento */
+    --accent-color: #50b0e8; /* Azul claro */
+    --dark-blue: #0a4c7f; /* Azul oscuro */
+    --ultra-dark-blue: #0a1522; /* Azul casi negro */
+    --dark-bg: #121212; /* Fondo negro con toque azulado */
+    --card-bg: #1e1e1e; /* Fondo de tarjetas */
+    --card-bg-color: #1e1e1e; /* Alias para compatibilidad */
+    --background-color: #121212; /* Alias para compatibilidad */
+    --success-color: #27ae60; /* Verde para indicadores positivos */
+    --warning-color: #e67e22; /* Naranja para advertencias */
+    --danger-color: #e74c3c; /* Rojo para alertas */
+    --info-color: #50b0e8; /* Azul para información */
+    --text-light: #ecf0f1; /* Texto claro */
+    --text-color: #ecf0f1; /* Alias para compatibilidad */
+    --text-dim: #bdc3c7; /* Texto menos destacado */
+    --light-text: #ecf0f1; /* Alias para compatibilidad */
+    --dark-text: #242424; /* Texto oscuro */
+    --card-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
+    --transition-speed: 0.3s;
+    --accent-gradient: linear-gradient(135deg, #1a7cb8, #50b0e8);
+    --accent-glow: 0 0 15px rgba(80, 176, 232, 0.6);
+    --card-border-color: #1a7cb8;
+    --card-glass: rgba(40, 40, 40, 0.25);
+    --neon-glow: 0 0 10px rgba(80, 176, 232, 0.8), 0 0 20px rgba(80, 176, 232, 0.5), 0 0 30px rgba(80, 176, 232, 0.3);
+    --intense-neon-glow: 0 0 15px rgba(80, 176, 232, 1), 0 0 30px rgba(80, 176, 232, 0.7), 0 0 45px rgba(80, 176, 232, 0.5);
+    --radar-gradient: conic-gradient(rgba(80, 176, 232, 0.2) 0%, transparent 30%, transparent 60%, rgba(80, 176, 232, 0.1) 70%, transparent 100%);
+}
+
+/* Estilo general del cuerpo */
+body {
+    background-color: var(--dark-bg);
+    color: var(--text-light);
+    font-family: 'Roboto', sans-serif;
+}
+
+/* Encabezado principal */
+header h1 {
+    color: var(--secondary-color);
+    text-shadow: 0 0 10px rgba(80, 176, 232, 0.5);
+    font-weight: 700;
+}
+
+/* Tarjetas */
+.card {
+    background-color: var(--card-bg);
+    border: 1px solid var(--dark-blue);
+    box-shadow: 0 0 15px rgba(10, 76, 127, 0.2);
+}
+
+.card-header {
+    background-color: var(--ultra-dark-blue) !important;
+    border-bottom: 1px solid var(--dark-blue);
+}
+
+.card-title {
+    color: var(--secondary-color);
+}
+
+.text-orange {
+    color: var(--secondary-color) !important; /* Cambiando naranja por azul */
+}
+
+/* Video container */
+.video-container {
+    background-color: var(--ultra-dark-blue);
+    border: 1px solid var(--dark-blue);
+}
+
+.video-placeholder {
+    color: var(--secondary-color);
+}
+
+.video-placeholder i {
+    filter: drop-shadow(0 0 5px rgba(80, 176, 232, 0.7));
+}
+
+/* Controles */
+.control-btn {
+    background-color: var(--ultra-dark-blue);
+    border: 1px solid var(--dark-blue);
+    color: var(--secondary-color);
+}
+
+.control-btn:hover {
+    background-color: var(--dark-blue);
+    color: var(--text-light);
+    box-shadow: 0 0 15px rgba(80, 176, 232, 0.4);
+}
+
+.control-active {
+    background-color: var(--primary-color) !important;
+    color: white !important;
+    box-shadow: 0 0 20px rgba(80, 176, 232, 0.8) !important;
+}
+
+#stop {
+    background-color: #901b1b;
+    border: 1px solid #721717;
+}
+
+#stop:hover {
+    background-color: #a41f1f;
+    box-shadow: 0 0 15px rgba(228, 76, 76, 0.4);
+}
+
+/* Sensores */
+.sensor-card {
+    background-color: var(--card-bg);
+    border: 1px solid var(--dark-blue);
+    transition: all 0.3s ease;
+}
+
+.sensor-card:hover {
+    box-shadow: 0 0 15px rgba(80, 176, 232, 0.3);
+}
+
+.sensor-icon {
+    color: var(--secondary-color);
+}
+
+.sensor-value {
+    color: var(--text-light);
+    font-weight: bold;
+}
+
+.sensor-critical {
+    color: var(--danger-color) !important;
+    animation: pulse 1s infinite alternate;
+}
+
+/* Tarjetas de temperatura y humedad */
+.temperature-scale, .humidity-scale {
+    background: linear-gradient(90deg, #3498db, #2980b9);
+}
+
+/* Radar y proximidad */
+.radar-display {
+    background-color: var(--ultra-dark-blue);
+    border: 1px solid var(--dark-blue);
+    box-shadow: inset 0 0 20px rgba(26, 124, 184, 0.2);
+}
+
+.radar-display:before {
+    background: 
+        radial-gradient(circle at bottom center, transparent 0, transparent 20px, rgba(26, 124, 184, 0.15) 21px, transparent 22px),
+        radial-gradient(circle at bottom center, transparent 0, transparent 40px, rgba(26, 124, 184, 0.15) 41px, transparent 42px),
+        radial-gradient(circle at bottom center, transparent 0, transparent 60px, rgba(26, 124, 184, 0.15) 61px, transparent 62px);
+}
+
+.radar-object {
+    background-color: var(--success-color);
+    box-shadow: 0 0 8px var(--success-color);
+}
+
+.proximity-bar {
+    background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+}
+
+/* Estilo para el modelo del carrito */
+.car-model-container {
+    background-color: #141414;
+    border-radius: 15px;
+    padding: 15px;
+    margin-bottom: 20px;
+    border: 1px solid #333;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+}
+
+.car-model-display {
+    width: 100%;
+    height: 160px;
+    background-color: #0a0a0a;
+    border-radius: 20px;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid var(--primary-color);
+    box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.8);
+}
+
+.car-outline {
+    width: 80%;
+    height: 80px;
+    border: 2px solid var(--primary-color);
+    border-radius: 30px;
+    position: relative;
+    box-shadow: 0 0 15px rgba(26, 124, 184, 0.3);
+}
+
+.car-icon {
+    font-size: 40px;
+    color: var(--primary-color);
+    filter: drop-shadow(0 0 8px rgba(26, 124, 184, 0.8));
+}
+
+/* Actualizar micrófonos */
+.mic-point {
+    position: absolute;
+    width: 24px;
+    height: 24px;
+    background-color: rgba(20, 20, 20, 0.8);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid var(--primary-color);
+    transition: all 0.3s ease;
+}
+
+.mic-point i {
+    font-size: 12px;
+    color: var(--primary-color);
+    transition: all 0.3s ease;
+}
+
+.mic-point[data-active="true"] {
+    background-color: rgba(10, 76, 127, 0.9);
+    box-shadow: 0 0 8px rgba(26, 124, 184, 0.9);
+    transform: scale(1.2);
+}
+
+.mic-point[data-active="true"] i {
+    color: var(--primary-light);
+    animation: pulse 0.5s infinite alternate;
+}
+
+/* Estilo actualizado para el radar sin animación giratoria */
+.radar-display {
+    height: 130px;
+    background-color: #0a1522; /* Negro azulado más oscuro */
+    border-radius: 150px 150px 0 0;
+    position: relative;
+    overflow: hidden;
+    margin-bottom: 15px;
+    border: 1px solid var(--primary-color);
+    border-bottom: none;
+    box-shadow: inset 0 0 20px rgba(10, 76, 127, 0.2);
+}
+
+/* Eliminar la animación giratoria */
+.radar-sweep {
+    display: none; /* Ocultamos el elemento giratorio */
+}
+
+/* Añadimos líneas de radar estáticas más elegantes */
+.radar-display:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: 150px 150px 0 0;
+    background: 
+        radial-gradient(circle at bottom center, transparent 0, transparent 20px, rgba(10, 76, 127, 0.15) 21px, transparent 22px),
+        radial-gradient(circle at bottom center, transparent 0, transparent 40px, rgba(10, 76, 127, 0.15) 41px, transparent 42px),
+        radial-gradient(circle at bottom center, transparent 0, transparent 60px, rgba(10, 76, 127, 0.15) 61px, transparent 62px);
+    pointer-events: none;
+}
+
+/* Actualizar los objetos del radar con nuevos colores */
+.radar-object {
+    position: absolute;
+    width: 6px;
+    height: 6px;
+    background-color: #50b0e8; /* Azul claro en lugar de verde */
+    border-radius: 50%;
+    box-shadow: 0 0 8px #50b0e8;
+    transform: translate(-50%, -50%);
+    z-index: 5;
+}
+
+.radar-static-object {
+    position: absolute;
+    width: 6px;
+    height: 6px;
+    background-color: #3354e8; /* Naranja más apagado */
+    border-radius: 50%;
+    box-shadow: 0 0 8px #3351e8;
+    transform: translate(-50%, -50%);
+    z-index: 5;
+}
+
+/* Actualizar la tarjeta de proximidad */
+.proximity-card {
+    background-color: #141414;
+    border: 1px solid var(--primary-color); /* Cambiado de #ff6600 a variable azul */
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 0 20px rgba(26, 124, 184, 0.3); /* Cambiado de naranja a azul */
+    position: relative;
+}
+
+.proximity-card:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: 
+        radial-gradient(ellipse at 30% 40%, rgba(26, 124, 184, 0.05) 0%, transparent 70%), /* Cambiado de naranja a azul */
+        radial-gradient(ellipse at 70% 60%, rgba(26, 124, 184, 0.05) 0%, transparent 70%); /* Cambiado de naranja a azul */
+    pointer-events: none;
+}
+
+.proximity-icon {
+    width: 64px;
+    height: 64px;
+    background-color: rgba(20, 20, 20, 0.8);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 10px;
+    border: 2px solid var(--primary-color); /* Cambiado de #ff6600 a variable azul */
+    box-shadow: 0 0 15px rgba(26, 124, 184, 0.7); /* Cambiado de naranja a azul */
+}
+
+.proximity-icon i {
+    font-size: 32px;
+    color: var(--primary-color); /* Cambiado de #ff6600 a variable azul */
+}
+
+.proximity-header h4 {
+    font-size: 18px;
+    color: var(--primary-color); /* Cambiado de #ff6600 a variable azul */
+    margin: 0;
+    letter-spacing: 2px;
+    font-weight: bold;
+}
+
+/* Actualizar los estilos del radar - CAMBIAR NARANJA A AZUL */
+.radar-display {
+    height: 130px;
+    background-color: #0a0a0a;
+    border-radius: 150px 150px 0 0;
+    position: relative;
+    overflow: hidden;
+    margin-bottom: 15px;
+    border: 1px solid #333;
+    border-bottom: none;
+    box-shadow: inset 0 0 20px rgba(26, 124, 184, 0.1); /* Cambiado de naranja a azul */
+}
+
+.radar-sweep {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent 50%, rgba(26, 124, 184, 0.15) 51%, transparent 100%); /* Cambiado de naranja a azul */
+    transform-origin: bottom center;
+    animation: radar-sweep 4s infinite linear;
+}
+
+/* Actualizar líneas del radar */
+.radar-display:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: 150px 150px 0 0;
+    background: 
+        radial-gradient(circle at bottom center, transparent 0, transparent 20px, rgba(26, 124, 184, 0.15) 21px, transparent 22px), /* Cambiado de naranja a azul */
+        radial-gradient(circle at bottom center, transparent 0, transparent 40px, rgba(26, 124, 184, 0.15) 41px, transparent 42px), /* Cambiado de naranja a azul */
+        radial-gradient(circle at bottom center, transparent 0, transparent 60px, rgba(26, 124, 184, 0.15) 61px, transparent 62px); /* Cambiado de naranja a azul */
+    pointer-events: none;
+}
+
+/* Actualizar objetos estáticos del radar */
+.radar-static-object {
+    position: absolute;
+    width: 6px;
+    height: 6px;
+    background-color: #50b0e8; /* Cambiado de #ffaa00 a azul claro */
+    border-radius: 50%;
+    box-shadow: 0 0 8px #50b0e8; /* Cambiado de naranja a azul */
+    transform: translate(-50%, -50%);
+    z-index: 5;
+}
+
+/* Actualizar el modelo del carrito */
+.car-model-container {
+    background-color: #141414;
+    border-radius: 15px;
+    padding: 15px;
+    margin-bottom: 20px;
+    border: 1px solid #333;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+}
+
+.car-model-display {
+    width: 100%;
+    height: 160px;
+    background-color: #0a0a0a;
+    border-radius: 20px;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid var(--primary-color);
+    box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.8);
+}
+
+.car-outline {
+    width: 80%;
+    height: 80px;
+    border: 2px solid var(--primary-color);
+    border-radius: 30px;
+    position: relative;
+    box-shadow: 0 0 15px rgba(26, 124, 184, 0.3);
+}
+
+.car-icon {
+    font-size: 40px;
+    color: var(--primary-color);
+    filter: drop-shadow(0 0 8px rgba(26, 124, 184, 0.8));
+}
+
+/* Actualizar micrófonos */
+.mic-point {
+    position: absolute;
+    width: 24px;
+    height: 24px;
+    background-color: rgba(20, 20, 20, 0.8);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid var(--primary-color);
+    transition: all 0.3s ease;
+}
+
+.mic-point i {
+    font-size: 12px;
+    color: var(--primary-color);
+    transition: all 0.3s ease;
+}
+
+.mic-point[data-active="true"] {
+    background-color: rgba(10, 76, 127, 0.9);
+    box-shadow: 0 0 8px rgba(26, 124, 184, 0.9);
+    transform: scale(1.2);
+}
+
+.mic-point[data-active="true"] i {
+    color: var(--primary-light);
+    animation: pulse 0.5s infinite alternate;
+}
+
+/* Estilo actualizado para el radar sin animación giratoria */
+.radar-display {
+    height: 130px;
+    background-color: #0a1522; /* Negro azulado más oscuro */
+    border-radius: 150px 150px 0 0;
+    position: relative;
+    overflow: hidden;
+    margin-bottom: 15px;
+    border: 1px solid var(--primary-color);
+    border-bottom: none;
+    box-shadow: inset 0 0 20px rgba(10, 76, 127, 0.2);
+}
+
+/* Eliminar la animación giratoria */
+.radar-sweep {
+    display: none; /* Ocultamos el elemento giratorio */
+}
+
+/* Añadimos líneas de radar estáticas más elegantes */
+.radar-display:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: 150px 150px 0 0;
+    background: 
+        radial-gradient(circle at bottom center, transparent 0, transparent 20px, rgba(10, 76, 127, 0.15) 21px, transparent 22px),
+        radial-gradient(circle at bottom center, transparent 0, transparent 40px, rgba(10, 76, 127, 0.15) 41px, transparent 42px),
+        radial-gradient(circle at bottom center, transparent 0, transparent 60px, rgba(10, 76, 127, 0.15) 61px, transparent 62px);
+    pointer-events: none;
+}
+
+/* Actualizar los objetos del radar con nuevos colores */
+.radar-object {
+    position: absolute;
+    width: 6px;
+    height: 6px;
+    background-color: #50b0e8; /* Azul claro en lugar de verde */
+    border-radius: 50%;
+    box-shadow: 0 0 8px #50b0e8;
+    transform: translate(-50%, -50%);
+    z-index: 5;
+}
+
+.radar-static-object {
+    position: absolute;
+    width: 6px;
+    height: 6px;
+    background-color: #191dfa; /* Naranja más apagado */
+    border-radius: 50%;
+    box-shadow: 0 0 8px #0f16da;
+    transform: translate(-50%, -50%);
+    z-index: 5;
+}
+
+/* Actualizar la tarjeta de proximidad */
+.proximity-card {
+    background-color: #141414;
+    border: 1px solid var(--primary-color); /* Cambiado de #ff6600 a variable azul */
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 0 20px rgba(26, 124, 184, 0.3); /* Cambiado de naranja a azul */
+    position: relative;
+}
+
+.proximity-card:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: 
+        radial-gradient(ellipse at 30% 40%, rgba(26, 124, 184, 0.05) 0%, transparent 70%), /* Cambiado de naranja a azul */
+        radial-gradient(ellipse at 70% 60%, rgba(26, 124, 184, 0.05) 0%, transparent 70%); /* Cambiado de naranja a azul */
+    pointer-events: none;
+}
+
+.proximity-icon {
+    width: 64px;
+    height: 64px;
+    background-color: rgba(20, 20, 20, 0.8);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 10px;
+    border: 2px solid var(--primary-color); /* Cambiado de #ff6600 a variable azul */
+    box-shadow: 0 0 15px rgba(26, 124, 184, 0.7); /* Cambiado de naranja a azul */
+}
+
+.proximity-icon i {
+    font-size: 32px;
+    color: var(--primary-color); /* Cambiado de #ff6600 a variable azul */
+}
+
+.proximity-header h4 {
+    font-size: 18px;
+    color: var(--primary-color); /* Cambiado de #ff6600 a variable azul */
+    margin: 0;
+    letter-spacing: 2px;
+    font-weight: bold;
+}
+
+/* Actualizar los estilos del radar - CAMBIAR NARANJA A AZUL */
+.radar-display {
+    height: 130px;
+    background-color: #0a0a0a;
+    border-radius: 150px 150px 0 0;
+    position: relative;
+    overflow: hidden;
+    margin-bottom: 15px;
+    border: 1px solid #333;
+    border-bottom: none;
+    box-shadow: inset 0 0 20px rgba(26, 124, 184, 0.1); /* Cambiado de naranja a azul */
+}
+
+.radar-sweep {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent 50%, rgba(26, 124, 184, 0.15) 51%, transparent 100%); /* Cambiado de naranja a azul */
+    transform-origin: bottom center;
+    animation: radar-sweep 4s infinite linear;
+}
+
+/* Actualizar líneas del radar */
+.radar-display:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: 150px 150px 0 0;
+    background: 
+        radial-gradient(circle at bottom center, transparent 0, transparent 20px, rgba(26, 124, 184, 0.15) 21px, transparent 22px), /* Cambiado de naranja a azul */
+        radial-gradient(circle at bottom center, transparent 0, transparent 40px, rgba(26, 124, 184, 0.15) 41px, transparent 42px), /* Cambiado de naranja a azul */
+        radial-gradient(circle at bottom center, transparent 0, transparent 60px, rgba(26, 124, 184, 0.15) 61px, transparent 62px); /* Cambiado de naranja a azul */
+    pointer-events: none;
+}
+
+/* Actualizar objetos estáticos del radar */
+.radar-static-object {
+    position: absolute;
+    width: 6px;
+    height: 6px;
+    background-color: #50b0e8; /* Cambiado de #ffaa00 a azul claro */
+    border-radius: 50%;
+    box-shadow: 0 0 8px #50b0e8; /* Cambiado de naranja a azul */
+    transform: translate(-50%, -50%);
+    z-index: 5;
+}
+
+/* Actualizar el modelo del carrito */
+.car-model-container {
+    background-color: #141414;
+    border-radius: 15px;
+    padding: 15px;
+    margin-bottom: 20px;
+    border: 1px solid #333;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+}
+
+.car-model-display {
+    width: 100%;
+    height: 160px;
+    background-color: #0a0a0a;
+    border-radius: 20px;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid var(--primary-color);
+    box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.8);
+}
+
+.car-outline {
+    width: 80%;
+    height: 80px;
+    border: 2px solid var(--primary-color);
+    border-radius: 30px;
+    position: relative;
+    box-shadow: 0 0 15px rgba(26, 124, 184, 0.3);
+}
+
+.car-icon {
+    font-size: 40px;
+    color: var(--primary-color);
+    filter: drop-shadow(0 0 8px rgba(26, 124, 184, 0.8));
+}
+
+/* Actualizar micrófonos */
+.mic-point {
+    position: absolute;
+    width: 24px;
+    height: 24px;
+    background-color: rgba(20, 20, 20, 0.8);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid var(--primary-color);
+    transition: all 0.3s ease;
+}
+
+.mic-point i {
+    font-size: 12px;
+    color: var(--primary-color);
+    transition: all 0.3s ease;
+}
+
+.mic-point[data-active="true"] {
+    background-color: rgba(10, 76, 127, 0.9);
+    box-shadow: 0 0 8px rgba(26, 124, 184, 0.9);
+    transform: scale(1.2);
+}
+
+.mic-point[data-active="true"] i {
+    color: var(--primary-light);
+    animation: pulse 0.5s infinite alternate;
+}
+
+/* Actualizar animaciones y elementos de fondo */
+body:before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: 
+        radial-gradient(circle at 20% 20%, rgba(26, 124, 184, 0.05) 0%, transparent 25%), /* Cambiado de naranja a azul */
+        radial-gradient(circle at 80% 80%, rgba(26, 124, 184, 0.05) 0%, transparent 25%), /* Cambiado de naranja a azul */
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%231a7cb8' fill-opacity='0.08' fill-rule='evenodd'/%3E%3C/svg%3E") repeat; /* Cambiado color de relleno de #ff9500 a azul #1a7cb8 */
+    z-index: -1;
+    opacity: 0.7;
+    animation: patternFloat 120s linear infinite;
+}
+
+body:after {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: -1;
+    background: 
+        radial-gradient(circle at 10% 30%, rgba(26, 124, 184, 0.03) 0%, transparent 40%), /* Cambiado de naranja a azul */
+        radial-gradient(circle at 90% 70%, rgba(26, 124, 184, 0.03) 0%, transparent 40%); /* Cambiado de naranja a azul */
+    opacity: 0.7;
+}
+
+/* Actualizar animaciones de texto */
+header h1 {
+    color: transparent;
+    font-weight: bold;
+    letter-spacing: 2px;
+    background: var(--accent-gradient); /* Ya usa variable */
+    -webkit-background-clip: text;
+    background-clip: text;
+    text-shadow: var(--accent-glow); /* Ya usa variable */
+    margin-bottom: 1.5rem;
+    padding: 15px 0;
+    position: relative;
+    font-size: 2.5rem;
+    animation: pulseText 3s infinite alternate;
+    text-transform: uppercase;
+}
+
+@keyframes pulseText {
+    0% { text-shadow: 0 0 10px rgba(26, 124, 184, 0.7); } /* Cambiado de naranja a azul */
+    100% { text-shadow: 0 0 20px rgba(26, 124, 184, 0.9), 0 0 30px rgba(26, 124, 184, 0.3); } /* Cambiado de naranja a azul */
+}
+
+/* Actualizar estilos de tarjetas */
+.card:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: var(--accent-gradient); /* Ya usa variable */
+    z-index: 2;
+    box-shadow: var(--neon-glow); /* Ya usa variable */
+}
+
+.card:after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, rgba(26, 124, 184, 0.1) 0%, transparent 50%, rgba(26, 124, 184, 0.05) 100%); /* Cambiado de naranja a azul */
+    z-index: 1;
+    pointer-events: none;
+}
+
+.card:hover {
+    transform: translateY(-5px) scale(1.01);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5), 0 0 20px rgba(26, 124, 184, 0.3); /* Cambiado de naranja a azul */
+}
+
+@keyframes glowPulse {
+    0% { box-shadow: 0 0 10px rgba(26, 124, 184, 0.5); } /* Cambiado de naranja a azul */
+    100% { box-shadow: 0 0 20px rgba(26, 124, 184, 0.9), 0 0 40px rgba(26, 124, 184, 0.3); } /* Cambiado de naranja a azul */
+}
+
+/* Actualizar clases de color */
+.bg-orange {
+    background-color: var(--primary-color) !important; /* Ya usa variable */
+}
+
+.text-orange {
+    color: var(--primary-color) !important; /* Ya usa variable */
+}
+
+.btn-orange {
+    background-color: var(--primary-color); /* Ya usa variable */
+    border-color: var(--primary-color); /* Ya usa variable */
+    color: white;
+}
+
+.btn-orange:hover {
+    background-color: var(--primary-dark); /* Cambiado de #e67300 a variable azul oscuro */
+    border-color: var(--primary-dark); /* Cambiado de #e67300 a variable azul oscuro */
+    color: white;
+}
+
+.btn-outline-orange {
+    color: var(--primary-color); /* Ya usa variable */
+    border-color: var(--primary-color); /* Ya usa variable */
+}
+
+/* Actualizar contenedor de video */
+.video-container {
+    background-color: #0a0a0a;
+    border-radius: 16px;
+    overflow: hidden;
+    position: relative;
+    height: 0;
+    padding-bottom: 56.25%; /* Aspect ratio 16:9 */
+    border: 1px solid rgba(26, 124, 184, 0.2); /* Cambiado de naranja a azul */
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.6), inset 0 0 30px rgba(0, 0, 0, 0.8);
+    transform-style: preserve-3d;
+    perspective: 1000px;
+    transition: transform 0.5s ease;
+}
+
+.video-container:hover {
+    transform: scale(1.02);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.7), 
+                0 0 30px rgba(26, 124, 184, 0.2), /* Cambiado de naranja a azul */
+                inset 0 0 30px rgba(0, 0, 0, 0.8);
+}
+
+.video-container:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: 
+        linear-gradient(45deg, rgba(26, 124, 184, 0.1), rgba(26, 124, 184, 0), rgba(26, 124, 184, 0.1)), /* Cambiado de naranja a azul */
+        repeating-linear-gradient(45deg, rgba(26, 124, 184, 0.05) 0px, rgba(26, 124, 184, 0.05) 1px, transparent 1px, transparent 10px); /* Cambiado de naranja a azul */
+    z-index: 1;
+    pointer-events: none;
+    animation: scanlines 8s linear infinite;
+}
+
+/* Actualizar indicador de señal */
+.signal-indicator {
+    display: flex;
+    gap: 2px;
+    padding: 5px 10px;
+    background-color: rgba(10, 10, 10, 0.6);
+    border-radius: 12px;
+    border: 1px solid rgba(26, 124, 184, 0.3); /* Cambiado de naranja a azul */
+}
+
+/* Actualizar botones de control */
+.control-btn {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    font-size: 1.7rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.5), 
+                0 2px 4px rgba(0, 0, 0, 0.4),
+                inset 0 -2px 0 rgba(0, 0, 0, 0.2),
+                0 0 15px rgba(26, 124, 184, 0.2); /* Cambiado de naranja a azul */
+    border: none;
+    background: linear-gradient(135deg, var(--primary-color), var(--primary-dark)); /* Ya usa variables */
+    color: white;
+    z-index: 1;
+    -webkit-backdrop-filter: blur(5px);
+    backdrop-filter: blur(5px);
+}
+
+.control-btn:hover {
+    transform: translateY(-8px) scale(1.1);
+    box-shadow: 0 15px 25px rgba(0, 0, 0, 0.5), 
+                0 5px 10px rgba(0, 0, 0, 0.4),
+                0 0 20px rgba(26, 124, 184, 0.6), /* Cambiado de naranja a azul */
+                0 0 35px rgba(26, 124, 184, 0.3); /* Cambiado de naranja a azul */
+    color: white;
+}
+
+/* Sensores */
+.sensor-card {
+    padding: 1.5rem 1.2rem;
+    border-radius: 18px;
+    background: linear-gradient(145deg, #1c1c1c, #222222);
+    text-align: center;
+    margin-bottom: 15px;
+    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.3), 
+                0 5px 10px rgba(0, 0, 0, 0.2);
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    transform-style: preserve-3d;
+    perspective: 1000px;
+}
+
+.sensor-card:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: var(--accent-gradient);
+    opacity: 0.7;
+    transition: all 0.3s ease;
+    z-index: 2;
+    box-shadow: var(--accent-glow);
+}
+
+.sensor-card:after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, 
+        transparent, 
+        rgba(255, 255, 255, 0.05), 
+        transparent);
+    z-index: -1;
+    transition: left 0.8s ease;
+}
+
+.sensor-card:hover {
+    transform: translateY(-7px) scale(1.03);
+    box-shadow: 0 15px 25px rgba(0, 0, 0, 0.4), 
+                0 10px 10px rgba(0, 0, 0, 0.2),
+                0 0 0 1px rgba(255, 149, 0, 0.1);
+}
+
+.sensor-card:hover:before {
+    height: 6px;
+    opacity: 1;
+    box-shadow: var(--neon-glow);
+}
+
+.sensor-card:hover:after {
+    left: 100%;
+}
+
+.sensor-card h4 {
+    font-size: 1rem;
+    margin: 12px 0;
+    color: rgba(255, 255, 255, 0.7);
+    letter-spacing: 1px;
+    font-weight: 500;
+    text-transform: uppercase;
+}
+
+.sensor-value {
+    font-size: 2rem;
+    font-weight: bold;
+    margin-top: 5px;
+    background: var(--accent-gradient);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    text-shadow: var(--accent-glow);
+    position: relative;
+    display: inline-block;
+}
+
+.sensor-scale {
+    width: 80%;
+    height: 6px;
+    background-color: rgba(50, 50, 50, 0.3);
+    border-radius: 3px;
+    margin: 10px auto 0;
+    overflow: hidden;
+    position: relative;
+}
+
+.scale-bar {
+    height: 100%;
+    border-radius: 3px;
+    transition: width 0.5s ease, background-color 0.5s ease;
+    position: relative;
+    width: 60%;
+}
+
+.scale-bar:after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 100%;
+    width: 4px;
+    background-color: rgba(255, 255, 255, 0.7);
+    border-radius: 0 3px 3px 0;
+}
+
+.temperature-scale {
+    background: linear-gradient(to right, #3498db, #ff9500, #e74c3c);
+    box-shadow: 0 0 8px rgba(0, 208, 255, 0.5);
+}
+
+.humidity-scale {
+    background: linear-gradient(to right, #e74c3c, #3498db, #2ecc71);
+    box-shadow: 0 0 8px rgba(52, 152, 219,  0.5);
+}
+
+@keyframes scalePulse {
+    0% { box-shadow: 0 0 5px rgba(0, 136, 255, 0.5); }
+    100% { box-shadow: 0 0 15px rgb(17, 139, 254), 0 0 20px rgba(0, 217, 255, 0.7); }
+}
+
+.sensor-icon {
+    margin: 5px auto 15px;
+    color: var(--primary-light);
+    font-size: 1.4em;
+    height: 70px;
+    width: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: linear-gradient(145deg, #212121, #171717);
+    box-shadow: 6px 6px 12px rgba(0, 0, 0, 0.4), 
+                -2px -2px 10px rgba(60, 60, 60, 0.1);
+    position: relative;
+    overflow: hidden;
+    transition: all 0.4s ease;
+}
+
+.sensor-icon:before {
+    content: '';
+    position: absolute;
+    top: -10%;
+    left: -10%;
+    width: 120%;
+    height: 120%;
+    background: radial-gradient(circle at 30% 30%, 
+        rgba(255, 255, 255, 0.15) 0%, 
+        transparent 60%);
+    pointer-events: none;
+}
+
+.sensor-icon:after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: conic-gradient(
+        transparent, 
+        rgba(255, 149, 0, 0.2), 
+        transparent 30%,
+        transparent 70%, 
+        rgba(255, 149, 0, 0.2), 
+        transparent
+    );
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    animation: rotateIcon 10s linear infinite;
+}
+
+@keyframes rotateIcon {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.sensor-card:hover .sensor-icon {
+    color: var(--primary-color);
+    transform: scale(1.1);
+    box-shadow: 0 0 15px rgba(255, 149, 0, 0.4), 
+                0 0 5px rgba(255, 149, 0, 0.2);
+    animation: iconPulse 2s infinite alternate;
+}
+
+.sensor-card:hover .sensor-icon:after {
+    opacity: 1;
+}
+
+@keyframes iconPulse {
+    0% { transform: scale(1); text-shadow: 0 0 5px rgba(255, 149, 0, 0.5); }
+    100% { transform: scale(1.15); text-shadow: 0 0 15px rgba(255, 149, 0, 0.8); }
+}
+
+/* Barra de proximidad */
+.proximity-container {
+    margin-top: 10px;
+    position: relative;
+}
+
+.proximity-card {
+    background-color: #141414;
+    border: 1px solid var(--primary-color); /* Cambiado de #ff6600 a variable azul */
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 0 20px rgba(26, 124, 184, 0.3); /* Cambiado de naranja a azul */
+    position: relative;
+}
+
+.proximity-card:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: 
+        radial-gradient(ellipse at 30% 40%, rgba(26, 124, 184, 0.05) 0%, transparent 70%), /* Cambiado de naranja a azul */
+        radial-gradient(ellipse at 70% 60%, rgba(26, 124, 184, 0.05) 0%, transparent 70%); /* Cambiado de naranja a azul */
+    pointer-events: none;
+}
+
+.proximity-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 15px 0;
+}
+
+.proximity-icon {
+    width: 64px;
+    height: 64px;
+    background-color: rgba(20, 20, 20, 0.8);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 10px;
+    border: 2px solid var(--primary-color); /* Cambiado de #ff6600 a variable azul */
+    box-shadow: 0 0 15px rgba(26, 124, 184, 0.7); /* Cambiado de naranja a azul */
+}
+
+.proximity-icon i {
+    font-size: 32px;
+    color: var(--primary-color); /* Cambiado de #ff6600 a variable azul */
+}
+
+.proximity-header h4 {
+    font-size: 18px;
+    color: var(--primary-color); /* Cambiado de #ff6600 a variable azul */
+    margin: 0;
+    letter-spacing: 2px;
+    font-weight: bold;
+}
+
+/* Actualizar los estilos del radar - CAMBIAR NARANJA A AZUL */
+.radar-display {
+    height: 130px;
+    background-color: #0a0a0a;
+    border-radius: 150px 150px 0 0;
+    position: relative;
+    overflow: hidden;
+    margin-bottom: 15px;
+    border: 1px solid #333;
+    border-bottom: none;
+    box-shadow: inset 0 0 20px rgba(26, 124, 184, 0.1); /* Cambiado de naranja a azul */
+}
+
+.radar-sweep {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent 50%, rgba(26, 124, 184, 0.15) 51%, transparent 100%); /* Cambiado de naranja a azul */
+    transform-origin: bottom center;
+    animation: radar-sweep 4s infinite linear;
+}
+
+/* Actualizar líneas del radar */
+.radar-display:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: 150px 150px 0 0;
+    background: 
+        radial-gradient(circle at bottom center, transparent 0, transparent 20px, rgba(26, 124, 184, 0.15) 21px, transparent 22px), /* Cambiado de naranja a azul */
+        radial-gradient(circle at bottom center, transparent 0, transparent 40px, rgba(26, 124, 184, 0.15) 41px, transparent 42px), /* Cambiado de naranja a azul */
+        radial-gradient(circle at bottom center, transparent 0, transparent 60px, rgba(26, 124, 184, 0.15) 61px, transparent 62px); /* Cambiado de naranja a azul */
+    pointer-events: none;
+}
+
+/* Actualizar objetos estáticos del radar */
+.radar-static-object {
+    position: absolute;
+    width: 6px;
+    height: 6px;
+    background-color: #50b0e8; /* Cambiado de #ffaa00 a azul claro */
+    border-radius: 50%;
+    box-shadow: 0 0 8px #50b0e8; /* Cambiado de naranja a azul */
+    transform: translate(-50%, -50%);
+    z-index: 5;
+}
+
+/* Actualizar el modelo del carrito */
+.car-model-container {
+    background-color: #141414;
+    border-radius: 15px;
+    padding: 15px;
+    margin-bottom: 20px;
+    border: 1px solid #333;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+}
+
+.car-model-display {
+    width: 100%;
+    height: 160px;
+    background-color: #0a0a0a;
+    border-radius: 20px;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid var(--primary-color);
+    box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.8);
+}
+
+.car-outline {
+    width: 80%;
+    height: 80px;
+    border: 2px solid var(--primary-color);
+    border-radius: 30px;
+    position: relative;
+    box-shadow: 0 0 15px rgba(26, 124, 184, 0.3);
+}
+
+.car-icon {
+    font-size: 40px;
+    color: var(--primary-color);
+    filter: drop-shadow(0 0 8px rgba(26, 124, 184, 0.8));
+}
+
+/* Actualizar micrófonos */
+.mic-point {
+    position: absolute;
+    width: 24px;
+    height: 24px;
+    background-color: rgba(20, 20, 20, 0.8);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid var(--primary-color);
+    transition: all 0.3s ease;
+}
+
+.mic-point i {
+    font-size: 12px;
+    color: var(--primary-color);
+    transition: all 0.3s ease;
+}
+
+.mic-point[data-active="true"] {
+    background-color: rgba(10, 76, 127, 0.9);
+    box-shadow: 0 0 8px rgba(26, 124, 184, 0.9);
+    transform: scale(1.2);
+}
+
+.mic-point[data-active="true"] i {
+    color: var(--primary-light);
+    animation: pulse 0.5s infinite alternate;
+}
+
+/* Actualizar animaciones y elementos de fondo */
+body:before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: 
+        radial-gradient(circle at 20% 20%, rgba(26, 124, 184, 0.05) 0%, transparent 25%), /* Cambiado de naranja a azul */
+        radial-gradient(circle at 80% 80%, rgba(26, 124, 184, 0.05) 0%, transparent 25%), /* Cambiado de naranja a azul */
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%231a7cb8' fill-opacity='0.08' fill-rule='evenodd'/%3E%3C/svg%3E") repeat; /* Cambiado color de relleno de #ff9500 a azul #1a7cb8 */
+    z-index: -1;
+    opacity: 0.7;
+    animation: patternFloat 120s linear infinite;
+}
+
+body:after {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: -1;
+    background: 
+        radial-gradient(circle at 10% 30%, rgba(26, 124, 184, 0.03) 0%, transparent 40%), /* Cambiado de naranja a azul */
+        radial-gradient(circle at 90% 70%, rgba(26, 124, 184, 0.03) 0%, transparent 40%); /* Cambiado de naranja a azul */
+    opacity: 0.7;
+}
+
+/* Actualizar animaciones de texto */
+header h1 {
+    color: transparent;
+    font-weight: bold;
+    letter-spacing: 2px;
+    background: var(--accent-gradient); /* Ya usa variable */
+    -webkit-background-clip: text;
+    background-clip: text;
+    text-shadow: var(--accent-glow); /* Ya usa variable */
+    margin-bottom: 1.5rem;
+    padding: 15px 0;
+    position: relative;
+    font-size: 2.5rem;
+    animation: pulseText 3s infinite alternate;
+    text-transform: uppercase;
+}
+
+@keyframes pulseText {
+    0% { text-shadow: 0 0 10px rgba(26, 124, 184, 0.7); } /* Cambiado de naranja a azul */
+    100% { text-shadow: 0 0 20px rgba(26, 124, 184, 0.9), 0 0 30px rgba(26, 124, 184, 0.3); } /* Cambiado de naranja a azul */
+}
+
+/* Actualizar estilos de tarjetas */
+.card:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: var(--accent-gradient); /* Ya usa variable */
+    z-index: 2;
+    box-shadow: var(--neon-glow); /* Ya usa variable */
+}
+
+.card:after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, rgba(26, 124, 184, 0.1) 0%, transparent 50%, rgba(26, 124, 184, 0.05) 100%); /* Cambiado de naranja a azul */
+    z-index: 1;
+    pointer-events: none;
+}
+
+.card:hover {
+    transform: translateY(-5px) scale(1.01);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5), 0 0 20px rgba(26, 124, 184, 0.3); /* Cambiado de naranja a azul */
+}
+
+@keyframes glowPulse {
+    0% { box-shadow: 0 0 10px rgba(26, 124, 184, 0.5); } /* Cambiado de naranja a azul */
+    100% { box-shadow: 0 0 20px rgba(26, 124, 184, 0.9), 0 0 40px rgba(26, 124, 184, 0.3); } /* Cambiado de naranja a azul */
+}
+
+/* Actualizar clases de color */
+.bg-orange {
+    background-color: var(--primary-color) !important; /* Ya usa variable */
+}
+
+.text-orange {
+    color: var(--primary-color) !important; /* Ya usa variable */
+}
+
+.btn-orange {
+    background-color: var(--primary-color); /* Ya usa variable */
+    border-color: var(--primary-color); /* Ya usa variable */
+    color: white;
+}
+
+.btn-orange:hover {
+    background-color: var(--primary-dark); /* Cambiado de #e67300 a variable azul oscuro */
+    border-color: var(--primary-dark); /* Cambiado de #e67300 a variable azul oscuro */
+    color: white;
+}
+
+.btn-outline-orange {
+    color: var(--primary-color); /* Ya usa variable */
+    border-color: var(--primary-color); /* Ya usa variable */
+}
+
+/* Actualizar contenedor de video */
+.video-container {
+    background-color: #0a0a0a;
+    border-radius: 16px;
+    overflow: hidden;
+    position: relative;
+    height: 0;
+    padding-bottom: 56.25%; /* Aspect ratio 16:9 */
+    border: 1px solid rgba(26, 124, 184, 0.2); /* Cambiado de naranja a azul */
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.6), inset 0 0 30px rgba(0, 0, 0, 0.8);
+    transform-style: preserve-3d;
+    perspective: 1000px;
+    transition: transform 0.5s ease;
+}
+
+.video-container:hover {
+    transform: scale(1.02);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.7), 
+                0 0 30px rgba(26, 124, 184, 0.2), /* Cambiado de naranja a azul */
+                inset 0 0 30px rgba(0, 0, 0, 0.8);
+}
+
+.video-container:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: 
+        linear-gradient(45deg, rgba(26, 124, 184, 0.1), rgba(26, 124, 184, 0), rgba(26, 124, 184, 0.1)), /* Cambiado de naranja a azul */
+        repeating-linear-gradient(45deg, rgba(26, 124, 184, 0.05) 0px, rgba(26, 124, 184, 0.05) 1px, transparent 1px, transparent 10px); /* Cambiado de naranja a azul */
+    z-index: 1;
+    pointer-events: none;
+    animation: scanlines 8s linear infinite;
+}
+
+/* Actualizar indicador de señal */
+.signal-indicator {
+    display: flex;
+    gap: 2px;
+    padding: 5px 10px;
+    background-color: rgba(10, 10, 10, 0.6);
+    border-radius: 12px;
+    border: 1px solid rgba(26, 124, 184, 0.3); /* Cambiado de naranja a azul */
+}
+
+/* Actualizar botones de control */
+.control-btn {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    font-size: 1.7rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.5), 
+                0 2px 4px rgba(0, 0, 0, 0.4),
+                inset 0 -2px 0 rgba(0, 0, 0, 0.2),
+                0 0 15px rgba(26, 124, 184, 0.2); /* Cambiado de naranja a azul */
+    border: none;
+    background: linear-gradient(135deg, var(--primary-color), var(--primary-dark)); /* Ya usa variables */
+    color: white;
+    z-index: 1;
+    -webkit-backdrop-filter: blur(5px);
+    backdrop-filter: blur(5px);
+}
+
+.control-btn:hover {
+    transform: translateY(-8px) scale(1.1);
+    box-shadow: 0 15px 25px rgba(0, 0, 0, 0.5), 
+                0 5px 10px rgba(0, 0, 0, 0.4),
+                0 0 20px rgba(26, 124, 184, 0.6), /* Cambiado de naranja a azul */
+                0 0 35px rgba(26, 124, 184, 0.3); /* Cambiado de naranja a azul */
+    color: white;
+}
+
+/* Sensores */
+.sensor-card {
+    padding: 1.5rem 1.2rem;
+    border-radius: 18px;
+    background: linear-gradient(145deg, #1c1c1c, #222222);
+    text-align: center;
+    margin-bottom: 15px;
+    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.3), 
+                0 5px 10px rgba(0, 0, 0, 0.2);
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    transform-style: preserve-3d;
+    perspective: 1000px;
+}
+
+.sensor-card:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: var(--accent-gradient);
+    opacity: 0.7;
+    transition: all 0.3s ease;
+    z-index: 2;
+    box-shadow: var(--accent-glow);
+}
+
+.sensor-card:after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, 
+        transparent, 
+        rgba(255, 255, 255, 0.05), 
+        transparent);
+    z-index: -1;
+    transition: left 0.8s ease;
+}
+
+.sensor-card:hover {
+    transform: translateY(-7px) scale(1.03);
+    box-shadow: 0 15px 25px rgba(0, 0, 0, 0.4), 
+                0 10px 10px rgba(0, 0, 0, 0.2),
+                0 0 0 1px rgba(255, 149, 0, 0.1);
+}
+
+.sensor-card:hover:before {
+    height: 6px;
+    opacity: 1;
+    box-shadow: var(--neon-glow);
+}
+
+.sensor-card:hover:after {
+    left: 100%;
+}
+
+.sensor-card h4 {
+    font-size: 1rem;
+    margin: 12px 0;
+    color: rgba(255, 255, 255, 0.7);
+    letter-spacing: 1px;
+    font-weight: 500;
+    text-transform: uppercase;
+}
+
+.sensor-value {
+    font-size: 2rem;
+    font-weight: bold;
+    margin-top: 5px;
+    background: var(--accent-gradient);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    text-shadow: var(--accent-glow);
+    position: relative;
+    display: inline-block;
+}
+
+.sensor-scale {
+    width: 80%;
+    height: 6px;
+    background-color: rgba(50, 50, 50, 0.3);
+    border-radius: 3px;
+    margin: 10px auto 0;
+    overflow: hidden;
+    position: relative;
+}
+
+.scale-bar {
+    height: 100%;
+    border-radius: 3px;
+    transition: width 0.5s ease, background-color 0.5s ease;
+    position: relative;
+    width: 60%;
+}
+
+.scale-bar:after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 100%;
+    width: 4px;
+    background-color: rgba(255, 255, 255, 0.7);
+    border-radius: 0 3px 3px 0;
+}
+
+.temperature-scale {
+    background: linear-gradient(to right, #3498db, #ff9500, #e74c3c);
+    box-shadow: 0 0 8px rgba(255, 149, 0, 0.5);
+}
+
+.humidity-scale {
+    background: linear-gradient(to right, #e74c3c, #3498db, #2ecc71);
+    box-shadow: 0 0 8px rgba(52, 152, 219, 0.5);
+}
+
+@keyframes scalePulse {
+    0% { box-shadow: 0 0 5px rgba(255, 149, 0, 0.5); }
+    100% { box-shadow: 0 0 15px rgba(255, 149, 0, 1), 0 0 20px rgba(255, 149, 0, 0.7); }
+}
+
+.sensor-icon {
+    margin: 5px auto 15px;
+    color: var(--primary-light);
+    font-size: 1.4em;
+    height: 70px;
+    width: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: linear-gradient(145deg, #212121, #171717);
+    box-shadow: 6px 6px 12px rgba(0, 0, 0, 0.4), 
+                -2px -2px 10px rgba(60, 60, 60, 0.1);
+    position: relative;
+    overflow: hidden;
+    transition: all 0.4s ease;
+}
+
+.sensor-icon:before {
+    content: '';
+    position: absolute;
+    top: -10%;
+    left: -10%;
+    width: 120%;
+    height: 120%;
+    background: radial-gradient(circle at 30% 30%, 
+        rgba(255, 255, 255, 0.15) 0%, 
+        transparent 60%);
+    pointer-events: none;
+}
+
+.sensor-icon:after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: conic-gradient(
+        transparent, 
+        rgba(17, 0, 255, 0.2), 
+        transparent 30%,
+        transparent 70%, 
+        rgba(0, 4, 255, 0.2), 
+        transparent
+    );
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    animation: rotateIcon 10s linear infinite;
+}
+
+@keyframes rotateIcon {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.sensor-card:hover .sensor-icon {
+    color: var(--primary-color);
+    transform: scale(1.1);
+    box-shadow: 0 0 15px rgba(0, 106, 255, 0.599), 
+                0 0 5px rgba(0, 21, 255, 0.444);
+    animation: iconPulse 2s infinite alternate;
+}
+
+.sensor-card:hover .sensor-icon:after {
+    opacity: 1;
+}
+
+@keyframes iconPulse {
+    0% { transform: scale(1); text-shadow: 0 0 5px rgba(0, 13, 255, 0.5); }
+    100% { transform: scale(1.15); text-shadow: 0 0 15px rgba(0, 110, 255, 0.8); }
+}
+
+/* Barra de proximidad */
+.proximity-container {
+    margin-top: 10px;
+    position: relative;
+}
+
+.proximity-card {
+    background-color: #141414;
+    border: 1px solid var(--primary-color); /* Cambiado de #ff6600 a variable azul */
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 0 20px rgba(26, 124, 184, 0.3); /* Cambiado de naranja a azul */
+    position: relative;
+}
+
+.proximity-card:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: 
+        radial-gradient(ellipse at 30% 40%, rgba(26, 124, 184, 0.05) 0%, transparent 70%), /* Cambiado de naranja a azul */
+        radial-gradient(ellipse at 70% 60%, rgba(26, 124, 184, 0.05) 0%, transparent 70%); /* Cambiado de naranja a azul */
+    pointer-events: none;
+}
+
+.proximity-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 15px 0;
+}
+
+.proximity-icon {
+    width: 64px;
+    height: 64px;
+    background-color: rgba(20, 20, 20, 0.8);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 10px;
+    border: 2px solid var(--primary-color); /* Cambiado de #ff6600 a variable azul */
+    box-shadow: 0 0 15px rgba(26, 124, 184, 0.7); /* Cambiado de naranja a azul */
+}
+
+.proximity-icon i {
+    font-size: 32px;
+    color: var(--primary-color); /* Cambiado de #ff6600 a variable azul */
+}
+
+.proximity-header h4 {
+    font-size: 18px;
+    color: var(--primary-color); /* Cambiado de #ff6600 a variable azul */
+    margin: 0;
+    letter-spacing: 2px;
+    font-weight: bold;
+}
+
+
+
+
+
+.video-container {
+    position: relative;
+    overflow: hidden;
+    padding-top: 56.25%; /* Aspect ratio 16:9 */
+}
+
+#videoStream {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+#cameraStream {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: contain; /* Ajusta el video sin distorsión */
+}
+
+.video-placeholder {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: #2c2c2c;
+    color: #fff;
+}
+
+.record-indicator {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    display: flex;
+    align-items: center;
+}
+
+.camera-controls {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+/* Asegurar que el botón 'Conectar' coincida con el estilo btn-orange */
+.btn-orange {
+    background-color: #ff8c00;
+    border-color: #ff8c00;
+    color: #fff;
+}
+
+.btn-orange:hover {
+    background-color: #e07b00;
+    border-color: #e07b00;
+}

@@ -1,0 +1,303 @@
+/* Efectos de partículas para el fondo */
+.particles-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: -2;
+    pointer-events: none;
+}
+
+.particle {
+    position: absolute;
+    background: radial-gradient(circle, rgba(26, 124, 184, 0.8) 0%, rgba(26, 124, 184, 0) 70%); /* Cambiado a azul */
+    border-radius: 50%;
+    opacity: 0;
+    animation: float-particle var(--duration) ease-in-out infinite;
+}
+
+@keyframes float-particle {
+    0% {
+        opacity: 0;
+        transform: translateY(100%) translateX(0);
+    }
+    10% {
+        opacity: var(--opacity);
+    }
+    90% {
+        opacity: var(--opacity);
+    }
+    100% {
+        opacity: 0;
+        transform: translateY(-100vh) translateX(var(--shift));
+    }
+}
+
+.tech-grid {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: 
+        linear-gradient(to right, rgba(26, 124, 184, 0.03) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(26, 124, 184, 0.03) 1px, transparent 1px);
+    background-size: 40px 40px;
+    z-index: -3;
+    opacity: 0.4;
+    pointer-events: none;
+}
+
+.glitch-effect {
+    position: relative;
+    overflow: hidden;
+}
+
+.glitch-effect:after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 50%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.15), transparent);
+    animation: glitch-scan 0.5s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+    pointer-events: none;
+    z-index: 10;
+}
+
+.glitch-effect:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(0deg, 
+        transparent 0%, 
+        rgba(26, 124, 184, 0.03) 1%, 
+        transparent 3%,
+        transparent 97%,
+        rgba(26, 124, 184, 0.03) 99%,
+        transparent 100%);
+    background-size: 100% 10px;
+    animation: glitch-lines 0.3s steps(10) forwards;
+    opacity: 0;
+    pointer-events: none;
+    z-index: 9;
+}
+
+@keyframes glitch-scan {
+    0% {
+        left: -100%;
+        opacity: 0.7;
+    }
+    100% {
+        left: 100%;
+        opacity: 0;
+    }
+}
+
+@keyframes glitch-lines {
+    0% { opacity: 0; }
+    20% { opacity: 0.7; }
+    40% { opacity: 0.4; }
+    60% { opacity: 0.8; }
+    80% { opacity: 0.5; }
+    100% { opacity: 0; }
+}
+
+.pulse-ring {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background: rgba(26, 124, 184, 0.2);
+    opacity: 0;
+    animation: pulse-animation 2s infinite;
+    pointer-events: none;
+}
+
+@keyframes pulse-animation {
+    0% {
+        transform: scale(0.7);
+        opacity: 0.3;
+    }
+    100% {
+        transform: scale(1.4);
+        opacity: 0;
+    }
+}
+
+.connection-indicator {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background-color: var(--success-color);
+    box-shadow: 0 0 10px var(--success-color);
+    z-index: 1000;
+}
+
+.connection-indicator:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: 50%;
+    background-color: var(--success-color);
+    opacity: 0.6;
+    animation: indicator-pulse 2s infinite;
+    z-index: -1;
+}
+
+.connection-indicator.disconnected {
+    background-color: var(--danger-color);
+    box-shadow: 0 0 10px var(--danger-color);
+}
+
+.connection-indicator.disconnected:before {
+    background-color: var(--danger-color);
+}
+
+@keyframes indicator-pulse {
+    0% {
+        transform: scale(1);
+        opacity: 0.6;
+    }
+    50% {
+        transform: scale(2);
+        opacity: 0;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 0;
+    }
+}
+
+/* Radar effect for proximity */
+.radar-container {
+    position: relative;
+    width: 100%;
+    height: 100px; 
+    margin-top: 15px;
+    border-radius: 50%;
+    overflow: hidden;
+    background: rgba(0, 0, 0, 0.2);
+}
+
+.radar-sweep {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: var(--radar-gradient);
+    animation: radar-sweep 4s infinite linear;
+    transform-origin: center bottom;
+}
+
+.radar-object {
+    position: absolute;
+    width: 6px;
+    height: 6px;
+    background-color: var(--primary-color);
+    border-radius: 50%;
+    top: 50%;
+    left: 70%;
+    transform: translate(-50%, -50%);
+    box-shadow: 0 0 5px var(--primary-color);
+    animation: radar-object-blink 1s infinite alternate;
+}
+
+@keyframes radar-sweep {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes radar-object-blink {
+    0% {
+        opacity: 0.7;
+        box-shadow: 0 0 3px var(--primary-color);
+    }
+    100% {
+        opacity: 1;
+        box-shadow: 0 0 8px var(--primary-color), 0 0 12px var(--primary-color);
+    }
+}
+
+.loading-dots {
+    display: inline-flex;
+    align-items: center;
+}
+
+.dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background-color: var(--primary-color);
+    margin-right: 3px;
+    animation: dot-pulse 1.5s infinite ease-in-out;
+}
+
+.dot:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.dot:nth-child(3) {
+    animation-delay: 0.4s;
+    margin-right: 0;
+}
+
+@keyframes dot-pulse {
+    0%, 100% {
+        transform: scale(1);
+        opacity: 0.6;
+    }
+    50% {
+        transform: scale(1.4);
+        opacity: 1;
+    }
+}
+
+.circuit-lines {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1;
+    background-image: 
+        linear-gradient(90deg, transparent 49.5%, rgba(26, 124, 184, 0.05) 49.5%, rgba(26, 124, 184, 0.05) 50.5%, transparent 50.5%),
+        linear-gradient(180deg, transparent 49.5%, rgba(26, 124, 184, 0.05) 49.5%, rgba(26, 124, 184, 0.05) 50.5%, transparent 50.5%);
+    background-size: 30px 30px;
+    opacity: 0.3;
+}
+
+.glow-effect:hover {
+    box-shadow: var(--intense-neon-glow);
+}
+
+/* Patrón de hexágonos para fondo tecnológico */
+.hexagon-grid {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: transparent;
+    background-image: 
+        radial-gradient(circle at 50% 50%, rgba(26, 124, 184, 0.05) 1px, transparent 3px);
+    background-size: 30px 30px;
+    z-index: -1;
+    opacity: 0.5;
+}
